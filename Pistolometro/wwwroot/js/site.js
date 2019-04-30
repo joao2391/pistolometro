@@ -1,19 +1,39 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿'use strict';
+$(document).ready(function () {
 
-// Write your JavaScript code.
+    $('#login').click(function () {
+
+        var url = "/Identity/Account/Login";
+        var position = getLocation();
+        var _latitude = position.latitude;
+        var _longitude = position.longitude;
+
+        $.post(url, { latitude: _latitude, longitude: _longitude }, function (data) {
+            console.log('lat:' + data);
+        });
+    });
+});
 
 function getLocation() {
 
-    if (navigator.geolocation) {
+    'use strict';
 
+    if ("geolocation" in navigator) {       
+        'use strict';
         navigator.geolocation.getCurrentPosition((position) => {
-
+            'use strict';
             console.log(position.coords.latitude, position.coords.longitude);
+            return {
+                "latitude": position.coords.latitude,
+                "longitude": position.coords.longitude
+            };
         });
 
     } else {
-
-        console.log('Geolocalizacao nao suportada');
+        'use strict';
+        return {
+            "latitude": 0,
+            "longitude": 0
+        };
     }
 }
