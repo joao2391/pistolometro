@@ -67,7 +67,7 @@ namespace Pistolometro.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string latitude, string longitude, string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Votacao");
             //TODO colocar geolocalização na validação do login
             if (ModelState.IsValid)
             {

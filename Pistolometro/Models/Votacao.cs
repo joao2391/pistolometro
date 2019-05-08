@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Pistolometro.Models
 {
@@ -17,7 +14,9 @@ namespace Pistolometro.Models
 
         public int QuantidadeVotos { get; set; }
 
-        public IdentityUser NomeVencedor { get; set; }
+        public string NomeVencedor { get; set; }
+
+        //public IdentityUser QuemVotou { get; set; }
 
     }
 }

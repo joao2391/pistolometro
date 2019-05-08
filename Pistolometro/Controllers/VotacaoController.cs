@@ -65,20 +65,15 @@ namespace Pistolometro.Controllers
             return View(votacao);
         }
 
-        // GET: Votacao/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Votacao/Edit/5 
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var votacao = await _context.Votacao.FindAsync(id);
-            if (votacao == null)
-            {
-                return NotFound();
-            }
-            return View(votacao);
+            
+            await Edit(id, votacao);
+
+            return RedirectToAction("Index");
+            
         }
 
         // POST: Votacao/Edit/5
@@ -97,6 +92,7 @@ namespace Pistolometro.Controllers
             {
                 try
                 {
+                    votacao.QuantidadeVotos += 1;
                     _context.Update(votacao);
                     await _context.SaveChangesAsync();
                 }

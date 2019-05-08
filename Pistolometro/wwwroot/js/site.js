@@ -1,5 +1,5 @@
 ﻿'use strict';
-$(document).ready(function () {
+//$(document).ready(function () {
 
     $('#login').click(function () {
 
@@ -12,7 +12,7 @@ $(document).ready(function () {
             console.log('lat:' + data);
         });
     });
-});
+//});
 
 function getLocation() {
 
@@ -37,3 +37,13 @@ function getLocation() {
         };
     }
 }
+
+//$(document).ready(function () {
+
+//    var id = $('#id').val();
+
+//    $.post('', { latitude: _latitude, longitude: _longitude }, function (data) {
+//        console.log('lat:' + data);
+//    });
+
+//});
