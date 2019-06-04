@@ -14,29 +14,23 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Inicio" class="control-label"></label>
-                <input asp-for="Inicio" class="form-control" />
+                <input asp-for="Inicio" type="date" class="form-control" />
                 <span asp-validation-for="Inicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Fim" class="control-label"></label>
-                <input asp-for="Fim" class="form-control" />
+                <input asp-for="Fim" type="date" class="form-control" />
                 <span asp-validation-for="Fim" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuantidadeVotos" class="control-label"></label>
+                <label class="control-label">Votos:</label>
                 <input asp-for="QuantidadeVotos" class="form-control" />
                 <span asp-validation-for="QuantidadeVotos" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                @*<label asp-for="IdentityUser.UserName" class="control-label"></label>
-        <input asp-for="IdentityUser.UserName" class="form-control" />
-        <span asp-validation-for="IdentityUser.UserName" class="text-danger"></span>*@
-                <label asp-for="IdentityUser.UserName" class="control-label"></label>
-                <select asp-for="IdUsuario" asp-items="@ViewBag.UserId"></select>
-                @*@Html.DropDownList("IdUsuario", ViewBag.UserId as SelectList)*@
-                @*@Html.DropDownListFor(model => model.IdentityUser, ViewBag.UserId as SelectList,"", new { @class = "form-control" })*@
-
-                @*<select asp-items="@ViewBag.UserId" name="Uf"></select>*@
+            <div class="form-group">                
+                <label class="control-label">Pistolinha:</label>
+                <select asp-for="IdUsuario" asp-items="@ViewBag.UserId" class="form-control"></select>
+                <span asp-validation-for="IdentityUser.UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
