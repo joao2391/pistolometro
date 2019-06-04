@@ -1,9 +1,10 @@
-﻿'use strict';
-//$(document).ready(function () {
+﻿
+$(document).ready(function () {
 
     $('#login').click(function () {
 
         var url = "/Identity/Account/Login";
+      
         var position = getLocation();
         var _latitude = position.latitude;
         var _longitude = position.longitude;
@@ -12,14 +13,12 @@
             console.log('lat:' + data);
         });
     });
-//});
+});
 
-function getLocation() {
-
-    'use strict';
+function getLocation() {   
 
     if ("geolocation" in navigator) {       
-        'use strict';
+        
         navigator.geolocation.getCurrentPosition((position) => {
             'use strict';
             console.log(position.coords.latitude, position.coords.longitude);
@@ -30,7 +29,7 @@ function getLocation() {
         });
 
     } else {
-        'use strict';
+        
         return {
             "latitude": 0,
             "longitude": 0

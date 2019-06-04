@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pistolometro.Data;
 
-namespace Pistolometro.Data.Migrations
+namespace Pistolometro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -192,13 +192,17 @@ namespace Pistolometro.Data.Migrations
 
                     b.Property<DateTime>("Fim");
 
-                    b.Property<DateTime>("Inicio");
+                    b.Property<string>("IdUsuario");
 
-                    b.Property<string>("NomeVencedor");
+                    b.Property<string>("IdentityUserId");
+
+                    b.Property<DateTime>("Inicio");
 
                     b.Property<int>("QuantidadeVotos");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId");
 
                     b.ToTable("Votacao");
                 });
@@ -246,6 +250,13 @@ namespace Pistolometro.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Pistolometro.Models.Votacao", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
                 });
 #pragma warning restore 612, 618
         }

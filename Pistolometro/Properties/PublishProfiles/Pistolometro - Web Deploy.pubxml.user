@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANT1enQD1/UaAD22HfoZmRgAAAAACAAAAAAAQZgAAAAEAACAAAAAJL/mIUv3SaW47Bc7GMl2D6W9UCECZL+kIeLJojZCxBQAAAAAOgAAAAAIAACAAAADQn4mGwzK17bI/JTqJ6GEr3Fq3jpb5w3iQa9XyH5PPS4AAAAAseAcMIMv2ZJPilmqIxfb9PofUEA+GlCzp+8F/N5gwc/mQRaxf5VGJ7gZ/D5Nos+8kItGLAtfx3wio+2TufBH7dHGczSsATPYt98cIhSu+Pnx+CmYpR6pGvgfi4rm8OD3jNOySECYQXXA5JeQZaoWN53hNg/JvtGfu7+Xc9YJvWkAAAAAM4xNQ48dV1yeDg7go5sVqkB6tvHGOUQUAJ+iP/nHj+96qhIIow9PWq5rmS2ApffCMpS/7CtxDww8l0KZe5lYb</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:pistolometrodbserver.database.windows.net,1433%3bInitial Catalog=Pistolometro_database%3bUser Id=joao2391%40pistolometrodbserver%3bPassword=Joaumpaulo123!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Pistolometro.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:pistolometrodbserver.database.windows.net,1433%3bInitial Catalog=Pistolometro_database%3bUser Id=joao2391%40pistolometrodbserver%3bPassword=Joaumpaulo123!</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

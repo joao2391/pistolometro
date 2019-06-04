@@ -22,7 +22,10 @@ namespace Pistolometro.Controllers
         // GET: Votacao
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Votacao.ToListAsync());
+            
+            return View(await _context.Votacao
+                                      .Include(v => v.IdentityUser)
+                                      .ToListAsync());
         }
 
         // GET: Votacao/Details/5
@@ -46,6 +49,8 @@ namespace Pistolometro.Controllers
         // GET: Votacao/Create
         public IActionResult Create()
         {
+            ViewBag.UserId = _context.Users.Select(u => new SelectListItem() { Text = u.UserName, Value = u.Id});//new SelectList(_context.Users, "Id", "UserName");
+
             return View();
         }
 
@@ -54,8 +59,11 @@ namespace Pistolometro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Inicio,Fim,QuantidadeVotos,NomeVencedor")] Votacao votacao)
+        public async Task<IActionResult> Create([Bind("Id,Inicio,Fim,QuantidadeVotos,IdUsuario")]Votacao votacao)
         {
+            var x = _context.Users.Where(u => u.Id == votacao.IdUsuario).FirstOrDefault();//.Select(s => s.UserName);
+            votacao.IdentityUser = x;
+            //[Bind("Id,Inicio,Fim,QuantidadeVotos,NomeVencedor")]
             if (ModelState.IsValid)
             {
                 _context.Add(votacao);

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Pistolometro.Models;
 
@@ -13,6 +10,6 @@ namespace Pistolometro.Data
             : base(options)
         {
         }
-        public DbSet<Pistolometro.Models.Votacao> Votacao { get; set; }
+        public DbSet<Votacao> Votacao { get; set; }
     }
 }
